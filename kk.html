@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mi Página Web Personal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+    nav button {
+      background: #555;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    section {
+      padding: 20px;
+      display: none;
+    }
+    .activo {
+      display: block;
+    }
+    .avatar {
+      width: 120px;
+      border-radius: 50%;
+    }
+    .tarjetas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .tarjeta {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 200px;
+    }
+    #login input {
+      display: block;
+      margin: 10px auto;
+      padding: 8px;
+      width: 200px;
+    }
+    a.enlace-video {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    a.enlace-video:hover {
+      background-color: #0056b3;
+    }
+    #inicio {
+      background-image: url('https://i.ytimg.com/vi/QBqAwMGeZjI/sddefault.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    #inicio img {
+      max-width: 100%;
+    }
+    #login {
+      background-image: url('https://i.pinimg.com/736x/b9/39/6b/b9396b05617d550b007375a47183223e.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .galeria img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    @media (min-width: 600px) {
+      .galeria img {
+        width: calc(33.33% - 20px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="menu" style="display:none;">
+    <button onclick="mostrar('inicio')">Inicio</button>
+    <button onclick="mostrar('perfil')">Perfil</button>
+    <button onclick="mostrar('pec')">Actividades PEC</button>
+    <button onclick="mostrar('museo')">Museo Virtual</button>
+    <button onclick="mostrar('video')">Diseño Digital</button>
+    <button onclick="logout()">Cerrar Sesión</button>
+  </nav>
+
+  <section id="login" class="activo">
+    <h2>Iniciar Sesión</h2>
+    <input type="text" id="usuario" placeholder="Usuario" />
+    <input type="password" id="clave" placeholder="Contraseña" />
+    <button onclick="login()">Ingresar</button>
+  </section>
+
+  <section id="inicio">
+    <h1>Bienvenidos a Mi Página compartida con mi compañero, donde les hablaremos sobre las actividades que hicimos en los semestres como el PEC y el muro artístico.</h1>
+    <p>Explora mi perfil, actividades académicas y proyectos creativos.</p>
+  </section>
+
+  <section id="perfil">
+    <h2>Perfil</h2>
+
+    <div>
+      <img src="https://media.istockphoto.com/id/1396444287/es/vector/dos-cabras-dirigiendo-pelota-de-f%C3%BAtbol.jpg?s=612x612&w=0&k=20&c=hdFNZzpjxAYVAFBmy2ZbV5A6ETmnOqCwL6-poklEYbY=" class="avatar" alt="Avatar Jose Miguel" />
+      <p><strong>Nombre:</strong> Jose Miguel Hernandez Martinez</p>
+      <p><strong>Carrera:</strong> Ingeniería en Sistemas</p>
+      <p><strong>Intereses:</strong> Programación, diseño web, videojuegos son algunas cosas que me gustan y comparto con mis compañeros. También me gusta jugar algunos deportes como el fútbol.</p>
+    </div>
+
+    <hr>
+
+    <div>
+      <img src="https://media.istockphoto.com/id/1396444287/es/vector/dos-cabras-dirigiendo-pelota-de-f%C3%BAtbol.jpg?s=612x612&w=0&k=20&c=hdFNZzpjxAYVAFBmy2ZbV5A6ETmnOqCwL6-poklEYbY=" class="avatar" alt="Avatar Mizar" />
+      <p><strong>Nombre:</strong> Mizar Zabdi Castañeda Picazo</p>
+      <p><strong>Carrera:</strong> Ingeniería en Sistemas</p>
+      <p><strong>Intereses:</strong> Programación, diseño web, videojuegos son algunas cosas que comparto con mi compañero pero igual me gusta el atletismo y el futbol.</p>
+    </div>
+  </section>
+
+  <section id="pec">
+    <h2>Actividades PEC</h2>
+    <div class="tarjetas">
+      <div class="tarjeta">
+        <h3>PEC de Miza</h3>
+        <p><a href="https://hailuoai.video/share/ai-video/XXl4GKaOOrV9" target="_blank">Ver actividad</a></p>
+      </div>
+      <div class="tarjeta">
+        <h3>PEC de Miguel</h3>
+        <p><a href="https://files.fm/f/43tquef45y" target="_blank">Ver actividad</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="museo">
+    <h2>Museo Virtual</h2>
+    <div class="galeria">
+      <img src="museo_virtual_recortado.png" alt="Obras del museo virtual" />
+    </div>
+  </section>
+
+  <section id="video">
+    <h2>Diseño Digital - Videos</h2>
+    <p>Elige el video que quieres ver:</p>
+    <button onclick="abrirVideo1()" style="padding:10px 20px; margin:5px; cursor:pointer;">
+      Video 1 - Renderforest Original
+    </button>
+    <button onclick="abrirVideo2()" style="padding:10px 20px; margin:5px; cursor:pointer;">
+      Video 2 - Renderforest Alternativo
+    </button>
+  </section>
+
+  <script>
+    function login() {
+      const usuario = document.getElementById("usuario").value;
+      const clave = document.getElementById("clave").value;
+
+      if (usuario === "alumno" && clave === "1234") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("menu").style.display = "block";
+        mostrar("inicio");
+      } else {
+        alert("Credenciales incorrectas. Usuario: alumno, Clave: 1234");
+      }
+    }
+
+    function mostrar(id) {
+      const secciones = document.querySelectorAll("section");
+      secciones.forEach((sec) => (sec.style.display = "none"));
+      document.getElementById(id).style.display = "block";
+    }
+
+    function logout() {
+      const secciones = document.querySelectorAll("section");
+      secciones.forEach((sec) => (sec.style.display = "none"));
+      document.getElementById("menu").style.display = "none";
+      document.getElementById("login").style.display = "block";
+    }
+
+    function abrirVideo1() {
+      window.open("https://www.renderforest.com/es/watch-101325342?queue_id=145577051&quality=0", "_blank");
+    }
+
+    function abrirVideo2() {
+      window.open("https://www.renderforest.com/es/watch-101324586?quality=0", "_blank");
+    }
+  </script>
+</body>
+</html>
